@@ -12,6 +12,7 @@ return — replace the `# TODO` line (and the `pass`) with your code.
 """
 
 
+import pandas as pd
 def tip_amount(subtotal, pct):
     """Return the tip: `pct` percent of `subtotal`, rounded to the nearest cent.
 
@@ -19,7 +20,7 @@ def tip_amount(subtotal, pct):
     10.0
     """
     # TODO: your code here
-    pass
+    return (subtotal * pct / 100)
 
 
 def grand_total(subtotal, pct):
@@ -31,7 +32,8 @@ def grand_total(subtotal, pct):
     60.0
     """
     # TODO: your code here
-    pass
+    return (subtotal + tip_amount(subtotal, pct))
+
 
 
 def split_evenly(total, people):
@@ -43,7 +45,12 @@ def split_evenly(total, people):
     15.0
     """
     # TODO: your code here
-    pass
+    if people <= 0:
+        raise ValueError("Number of people must be greater than 0")
+    return (total / people)
+
+split_evenly(60, 4)
+print(type(split_evenly(60, 4)))  # This will print 15.0
 
 
 def is_generous(pct):
@@ -53,4 +60,22 @@ def is_generous(pct):
     True
     """
     # TODO: your code here
-    pass
+    if pct >= 20:
+        return True
+    return False
+
+
+subtotal, pct, people = 50.0, 20, 4
+total = grand_total(subtotal, pct)
+per_person = split_evenly(total, people)
+
+print(f"Grand total: ${total:.2f}")
+print(f"Each of {people} pays: ${per_person:.2f}")
+per_person
+
+percents = [10, 15, 18, 20, 25]
+table = pd.DataFrame(
+    {"per person": [split_evenly(grand_total(subtotal, p), people) for p in percents]},
+    index=[f"{p}%" for p in percents],
+)
+table

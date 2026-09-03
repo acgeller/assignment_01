@@ -1,4 +1,18 @@
 Write your reflection here.
 
+Honestly, the main thing I learned in this assignment is that the kernel that I selected 
+in the ipynb was not working properly. Despite an hour or two of debugging the functions,
+the tests in the ipynb kept returning null values (being displayed as "None"). I only 
+figured this out when I went into the bill.py file and printed the outputs of all of
+the functions so I could confirm that I'm not crazy.
+
+Moving forward, I want to learn how to properly select kernels and know which ones to download
+/select when running ipy notebooks versus python files. 
+
+Additionally, I'm getting more comfortable with functions, returns, and passing values. 
+When I took 256, I didn't understand the point of return statements and only understood
+prints. I genuinely thought that print statements passed values through functions like
+returns. 
+
 See reflection.md for what makes a good reflection — be specific, use the
 terminology from class, and make it actionable.
