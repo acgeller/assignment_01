@@ -44,14 +44,14 @@ def split_evenly(total, people):
     >>> split_evenly(60, 4)
     15.0
     """
-    # TODO: your code here
     if people <= 0:
         raise ValueError("Number of people must be greater than 0")
-    return (total / people)
+    return round(total / people, 2)
 
-split_evenly(60, 4)
-print(type(split_evenly(60, 4)))  # This will print 15.0
-
+# change the split evenly function so that the test statement below passes.
+# test_split_evenly: assert 33.333333333333336 == 33.33 + where 33.333333333333336 = split_evenly(100, 3)
+# write code to test the split evenly function
+print(split_evenly(100, 3))  # This will print 33.33
 
 def is_generous(pct):
     """Return True when a tip percent is considered generous (20% or more).
