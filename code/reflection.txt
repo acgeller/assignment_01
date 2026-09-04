@@ -1,18 +1,10 @@
 Write your reflection here.
 
-Honestly, the main thing I learned in this assignment is that the kernel that I selected 
-in the ipynb was not working properly. Despite an hour or two of debugging the functions,
-the tests in the ipynb kept returning null values (being displayed as "None"). I only 
-figured this out when I went into the bill.py file and printed the outputs of all of
-the functions so I could confirm that I'm not crazy.
+The main thing I learned in this assignment came from a debugging experience that turned out to be environmental, not logical. My functions kept returning None in the notebook tests, and I spent an hour or two assuming my logic was broken. Only after I opened bill.py and printed the outputs of tip_amount, grand_total, and split_evenly did I confirm the functions were computing correctly—the real culprit was the kernel I'd selected in the .ipynb.
 
-Moving forward, I want to learn how to properly select kernels and know which ones to download
-/select when running ipy notebooks versus python files. 
+That experience clarified how return values flow between functions. In 256, I thought print passed values through functions the way return does. This assignment made the distinction concrete: grand_total has to return its value so it can call tip_amount and add to it, and split_evenly needs a real returned total to divide—a print would pass None downstream, the same failure I saw from the kernel.
 
-Additionally, I'm getting more comfortable with functions, returns, and passing values. 
-When I took 256, I didn't understand the point of return statements and only understood
-prints. I genuinely thought that print statements passed values through functions like
-returns. 
+Two concrete next steps. First, I'll validate results with assertions against known inputs (e.g., assert grand_total(50, 20) == 60.0) instead of relying on the notebook display, and I'll test edge cases like rounding on uneven splits and the ValueError that split_evenly raises when people <= 0. Second, before debugging, I'll confirm the notebook kernel points to the same environment my .py file runs in, with a quick sanity cell at the top, so I don't again mistake a kernel problem for broken logic.
 
 See reflection.md for what makes a good reflection — be specific, use the
 terminology from class, and make it actionable.
